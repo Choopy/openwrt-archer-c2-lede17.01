@@ -157,6 +157,49 @@ static struct flash_layout layouts[] = {
 	}
 };
 
+static struct board_info boards[] = {
+	{
+		.id		= "TD-W8970v1",
+		.hw_id		= 0x89700001,
+		.hw_rev		= 1,
+		.layout_id	= "8Mltq",
+	}, {
+		.id		= "TD-W8980v1",
+		.hw_id		= 0x89800001,
+		.hw_rev		= 14,
+		.layout_id	= "8Mltq",
+	}, {
+		.id		= "ArcherC20i",
+		.hw_id		= 0xc2000001,
+		.hw_rev		= 58,
+		.layout_id	= "8Mmtk",
+		.hdr_ver	= 3,
+		.endian_swap	= true,
+	}, {
+		.id		= "ArcherC2",
+		.hw_id		= 0xc7500001,
+		.hw_rev		= 50,
+		.layout_id	= "8Mmtk",
+		.hdr_ver	= 3,
+		.endian_swap	= true,
+	}, {
+		.id		= "ArcherVR200V",
+		.hw_id		= 0x73b70801,
+		.hw_rev		= 0x2f,
+		.layout_id	= "16Mltq",
+		.hdr_ver	= 2,
+	}, {
+		.id		= "ArcherC50",
+		.hw_id		= 0xc7500001,
+		.hw_rev		= 69,
+		.layout_id	= "8Mmtk",
+		.hdr_ver	= 3,
+		.endian_swap	= true,
+	}, {
+		/* terminating entry */
+	}
+};
+
 static void usage(int status)
 {
 	FILE *stream = (status != EXIT_SUCCESS) ? stderr : stdout;

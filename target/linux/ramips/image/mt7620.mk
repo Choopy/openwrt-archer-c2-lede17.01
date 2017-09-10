@@ -57,8 +57,21 @@ define Device/ArcherC20i
 endef
 TARGET_DEVICES += ArcherC20i
 
+
+define Device/ArcherC2
+  DTS := ArcherC2
+  SUPPORTED_DEVICES := c2
+  TPLINK_FLASHLAYOUT := 8Mmtk
+  TPLINK_HWID := 0xc7500001
+  TPLINK_HWREV := 50
+  KERNEL := $(KERNEL_DTB)
+  KERNEL_INITRAMFS := $(KERNEL_DTB) | tplink-header ArcherC2 -c
+  IMAGE/sysupgrade.bin := append-kernel | tplink-header ArcherC2 -j -r $(KDIR)/root.squashfs
+  DEVICE_TITLE := TP-Link ArcherC2
+endef
+TARGET_DEVICES += ArcherC2
+
 define Device/ArcherC50v1
-  $(Device/Archer)
   DTS := ArcherC50
   SUPPORTED_DEVICES := c50
   TPLINK_FLASHLAYOUT := 8Mmtk

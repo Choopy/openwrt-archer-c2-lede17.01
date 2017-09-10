@@ -245,6 +245,7 @@ platform_check_image() {
 		return 0
 		;;
 	c20i|\
+	c2|\
 	c50|\
 	mr200|\
 	tplink,c20-v1|\
