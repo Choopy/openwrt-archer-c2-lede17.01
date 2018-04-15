@@ -67,6 +67,7 @@ define Device/ArcherC2
   KERNEL := $(KERNEL_DTB)
   KERNEL_INITRAMFS := $(KERNEL_DTB) | tplink-header ArcherC2 -c
   IMAGE/sysupgrade.bin := append-kernel | tplink-header ArcherC2 -j -r $(KDIR)/root.squashfs
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ohci kmod-ledtrig-usbdev kmod-mt7610e wpad luci-mtk-wifi
   DEVICE_TITLE := TP-Link ArcherC2
 endef
 TARGET_DEVICES += ArcherC2
