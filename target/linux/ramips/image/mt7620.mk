@@ -59,15 +59,16 @@ TARGET_DEVICES += ArcherC20i
 
 
 define Device/ArcherC2
+  $(Device/Archer)
   DTS := ArcherC2
   SUPPORTED_DEVICES := c2
   TPLINK_FLASHLAYOUT := 8Mmtk
   TPLINK_HWID := 0xc7500001
   TPLINK_HWREV := 50
   KERNEL := $(KERNEL_DTB)
-  KERNEL_INITRAMFS := $(KERNEL_DTB) | tplink-header ArcherC2 -c
-  IMAGE/sysupgrade.bin := append-kernel | tplink-header ArcherC2 -j -r $(KDIR)/root.squashfs
-  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ohci kmod-ledtrig-usbdev kmod-mt7610e wpad luci-mtk-wifi
+  KERNEL_INITRAMFS := $(KERNEL_DTB) | tplink-v2-header ArcherC2 -c
+  IMAGE/sysupgrade.bin := append-kernel | tplink-v2-header ArcherC2 -j -r $(KDIR)/root.squashfs
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ohci kmod-ledtrig-usbdev kmod-mt7610e luci-mtk-wifi
   DEVICE_TITLE := TP-Link ArcherC2
 endef
 TARGET_DEVICES += ArcherC2
